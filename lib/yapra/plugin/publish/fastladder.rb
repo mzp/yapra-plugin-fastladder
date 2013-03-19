@@ -6,9 +6,9 @@ require 'json'
 module Yapra::Plugin::Publish
   class Fastladder < Yapra::Plugin::Base
     def run(data)
-      data.reverse_each do|item|
-        params = {
-          feedtitle: config['title'],
+      feeds = data.map do|item|
+        {
+          feedtitle: config['feedtitle'],
           feedlink:  config['feedlink'],
           title:  item.title,
           link:   item.link,
@@ -16,8 +16,12 @@ module Yapra::Plugin::Publish
           author: item.author,
           published_date: item.pubDate
         }
-        RestClient.post(URI.join(config['url'],'/rpc/update_feed').to_s, json: params.to_json, api_key: config['apikey'])
-      end
+      end.reverse
+
+      result = RestClient.post(URI.join(config['url'],'/rpc/update_feeds').to_s,
+                               feeds: feeds.to_json,
+                               api_key: config['apikey'])
+      raise "post error: #{result}" unless JSON.parse(result)['result']
     end
   end
 end

@@ -13,7 +13,7 @@ This is yapra plugin for fastladder.
         url: http://example.com/rss
     - module: Publish::Fastladder
       config:
-        title: FeedTitle
+        feedtitle: FeedTitle
         feedlink: http://example.com
         url:      http://dev.fastlader/
         apikey:   e3ad9bca38c341e28834ff881ee32d59 

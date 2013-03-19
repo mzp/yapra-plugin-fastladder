@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Yapra::Plugin::Fastladder::VERSION
   spec.authors       = ["mzp"]
   spec.email         = ["mzpppp@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{This is provide Publish::Fastladder for yapra}
+  spec.summary       = %q{Yapra plugin for Fastladder publish}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,6 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "yapra"
+  spec.add_dependency "rest-client"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 end

@@ -1,29 +1,20 @@
-# Yapra::Plugin::Fastladder
+# yapra-plugin-fastladder
 
-TODO: Write a gem description
+This is yapra plugin for fastladder.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'yapra-plugin-fastladder'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install yapra-plugin-fastladder
+    gem install yapra-plugin-fastladder
 
 ## Usage
 
-TODO: Write usage instructions here
+    - module: Feed::Load
+      config:
+        url: http://example.com/rss
+    - module: Publish::Fastladder
+      config:
+        title: FeedTitle
+        feedlink: http://example.com
+        url:      http://dev.fastlader/
+        apikey:   e3ad9bca38c341e28834ff881ee32d59 
 
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
